@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dabbugottu Lavanya — Business Analyst &amp; Software Developer</title>
+<meta name="description" content="Portfolio of Dabbugottu Lavanya — Business Analyst candidate and software developer bridging data, analytics, and engineering.">
+<style>
+  :root{
+    --ink:#0B1120;
+    --ink-2:#0F1729;
+    --panel:#121B32;
+    --line: rgba(148,163,184,0.14);
+    --text:#EDEEF3;
+    --muted:#93A0B8;
+    --muted-2:#697590;
+    --amber:#F5A623;
+    --amber-soft: rgba(245,166,35,0.16);
+    --teal:#2FE6C7;
+    --teal-soft: rgba(47,230,199,0.15);
+    --coral:#FF6F61;
+    --coral-soft: rgba(255,111,97,0.15);
+    --violet:#9B7BFF;
+    --violet-soft: rgba(155,123,255,0.16);
+    --pink:#FF5FA2;
+    --pink-soft: rgba(255,95,162,0.15);
+    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --display: "Space Grotesk", "Inter", sans-serif;
+    --body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  .bg-grid{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, black 10%, transparent 70%);
+            mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, black 10%, transparent 70%);
+    opacity:0.6;
+  }
+  .bg-mesh{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(680px 480px at 12% -6%, rgba(155,123,255,0.30), transparent 60%),
+      radial-gradient(620px 480px at 88% 4%, rgba(47,230,199,0.24), transparent 60%),
+      radial-gradient(700px 520px at 60% 100%, rgba(255,111,97,0.16), transparent 60%),
+      radial-gradient(500px 400px at 5% 70%, rgba(245,166,35,0.14), transparent 60%);
+  }
+
+  a{color:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px; position:relative; z-index:1;}
+  section{position:relative; z-index:1;}
+
+  /* NAV */
+  header#nav{
+    position:sticky; top:0; z-index:100;
+    background:rgba(11,17,32,0.78);
+    backdrop-filter: blur(14px) saturate(140%);
+    border-bottom:1px solid var(--line);
+  }
+  .navrow{max-width:1120px; margin:0 auto; padding:0 32px; height:68px; display:flex; align-items:center; justify-content:space-between;}
+  .brand{font-family:var(--display); font-weight:600; font-size:1.05rem; letter-spacing:0.01em; display:flex; align-items:center; gap:10px;}
+  .brand-mark{
+    width:12px;height:12px;border-radius:3px;
+    background: linear-gradient(135deg, var(--violet), var(--teal) 55%, var(--amber));
+    box-shadow: 0 0 14px rgba(47,230,199,0.4);
+  }
+  nav.links{display:flex; gap:2rem; font-size:0.92rem; color:var(--muted);}
+  nav.links a{position:relative; padding:6px 0; text-decoration:none; transition:color .25s ease;}
+  nav.links a:hover{color:var(--text);}
+  nav.links a::after{
+    content:""; position:absolute; left:0; bottom:0; width:0; height:2px;
+    background:linear-gradient(90deg, var(--teal), var(--violet)); transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    font-family:var(--mono); font-size:0.78rem; letter-spacing:0.02em;
+    border:1px solid var(--line); padding:8px 16px; border-radius:8px;
+    color:var(--text); text-decoration:none; transition:all .25s ease;
+  }
+  .nav-cta:hover{border-color:var(--violet); color:var(--violet); box-shadow:0 0 0 3px var(--violet-soft);}
+  .navtoggle{display:none;}
+
+  /* HERO */
+  .hero{
+    padding:120px 0 90px;
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:0.76rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--teal); display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow::before{content:""; width:22px; height:2px; border-radius:2px; background:linear-gradient(90deg, var(--violet), var(--teal));}
+  h1.hero-title{
+    font-family:var(--serif); font-weight:600; font-size:clamp(2.4rem, 5vw, 3.7rem);
+    line-height:1.08; margin:0 0 22px; letter-spacing:-0.01em;
+  }
+  h1.hero-title em{
+    font-style:italic; font-weight:500;
+    background: linear-gradient(100deg, var(--amber), var(--coral) 45%, var(--violet) 90%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-desc{color:var(--muted); font-size:1.06rem; max-width:52ch; margin:0 0 34px;}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+  .btn{
+    font-family:var(--display); font-weight:500; font-size:0.92rem;
+    padding:13px 26px; border-radius:9px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .btn-primary{background:linear-gradient(120deg, var(--teal), var(--violet) 140%); color:#06231F; font-weight:600;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(155,123,255,0.32);}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--coral); color:var(--coral); transform:translateY(-2px);}
+
+  .hero-meta{display:flex; gap:28px; flex-wrap:wrap; font-family:var(--mono); font-size:0.82rem; color:var(--muted-2);}
+  .hero-meta span{display:flex; align-items:center; gap:8px;}
+  .hero-meta span:nth-child(1) .dot{background:var(--amber);}
+  .hero-meta span:nth-child(2) .dot{background:var(--coral);}
+  .hero-meta span:nth-child(3) .dot{background:var(--violet);}
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--amber); display:inline-block;}
+
+  /* SIGNATURE VISUAL: data -> code */
+  .signature{
+    position:relative; height:420px; display:flex; align-items:center; justify-content:center;
+  }
+  .sig-card{
+    position:relative; width:100%; height:100%; border-radius:20px;
+    background: linear-gradient(160deg, var(--panel), var(--ink-2));
+    border:1px solid var(--line);
+    overflow:hidden;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55);
+  }
+  .sig-card svg{width:100%; height:100%; display:block;}
+
+  /* SECTION GENERIC */
+  .section{padding:96px 0;}
+  .section-head{margin-bottom:52px; max-width:64ch;}
+  .section-tag{
+    font-family:var(--mono); font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--amber); margin-bottom:14px; display:block;
+  }
+  #experience .section-tag{color:var(--teal);}
+  #projects .section-tag{color:var(--coral);}
+  #skills .section-tag{color:var(--violet);}
+  #honors .section-tag{color:var(--pink);}
+  .section-title{font-family:var(--serif); font-size:clamp(1.7rem,3vw,2.3rem); font-weight:600; margin:0 0 14px; letter-spacing:-0.01em;}
+  .section-sub{color:var(--muted); font-size:1rem; margin:0;}
+  .divider{height:1px; background:var(--line); border:none; margin:0;}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns: 1fr 300px; gap:56px; align-items:start;}
+  .about-text p{color:var(--muted); font-size:1.02rem; max-width:64ch;}
+  .about-text strong{color:var(--text); font-weight:600;}
+  .stat-panel{border:1px solid var(--line); border-radius:16px; padding:26px; background:var(--panel);}
+  .about-visual{border:1px solid var(--line); border-radius:16px; background:var(--panel); margin-bottom:22px; overflow:hidden;}
+  .about-visual svg{width:100%; height:auto; display:block;}
+  .stat-row{display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--line); font-size:0.9rem;}
+  .stat-row:last-child{border-bottom:none;}
+  .stat-row span:first-child{color:var(--muted-2); font-family:var(--mono); font-size:0.78rem;}
+  .stat-row span:last-child{color:var(--text); font-weight:500; text-align:right;}
+
+  /* TIMELINE */
+  .timeline{position:relative; margin-top:10px;}
+  .timeline::before{
+    content:""; position:absolute; left:9px; top:6px; bottom:6px; width:1px; background:var(--line);
+  }
+  .t-item{position:relative; padding:0 0 44px 42px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-dot{
+    position:absolute; left:0; top:2px; width:19px; height:19px; border-radius:50%;
+    background:var(--ink); border:1px solid var(--teal);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .t-dot::after{content:""; width:7px; height:7px; border-radius:50%; background:var(--teal);}
+  .t-item:nth-child(1) .t-dot{border-color:var(--violet); box-shadow:0 0 14px rgba(155,123,255,0.35);}
+  .t-item:nth-child(1) .t-dot::after{background:var(--violet);}
+  .t-item:nth-child(2) .t-dot{border-color:var(--teal); box-shadow:0 0 14px rgba(47,230,199,0.35);}
+  .t-item:nth-child(3) .t-dot{border-color:var(--coral); box-shadow:0 0 14px rgba(255,111,97,0.35);}
+  .t-item:nth-child(3) .t-dot::after{background:var(--coral);}
+  .t-period{font-family:var(--mono); font-size:0.76rem; color:var(--amber); letter-spacing:0.03em;}
+  .t-role{font-family:var(--display); font-size:1.14rem; font-weight:600; margin:6px 0 2px;}
+  .t-org{color:var(--muted); font-size:0.92rem; margin-bottom:12px;}
+  .t-list{margin:0; padding-left:18px; color:var(--muted); font-size:0.95rem;}
+  .t-list li{margin-bottom:8px;}
+  .t-list li::marker{color:var(--teal);}
+  .t-tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
+  .tag{
+    font-family:var(--mono); font-size:0.72rem; padding:5px 11px; border-radius:20px;
+    border:1px solid var(--line); color:var(--muted);
+  }
+  .t-tags .tag:nth-child(1){border-color:rgba(155,123,255,0.4); color:var(--violet);}
+  .t-tags .tag:nth-child(2){border-color:rgba(47,230,199,0.4); color:var(--teal);}
+  .t-tags .tag:nth-child(3){border-color:rgba(255,111,97,0.4); color:var(--coral);}
+  .t-tags .tag:nth-child(4){border-color:rgba(245,166,35,0.4); color:var(--amber);}
+  .t-tags .tag:nth-child(5){border-color:rgba(255,95,162,0.4); color:var(--pink);}
+
+  /* PROJECTS */
+  .card-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;}
+  .p-card{
+    border:1px solid var(--line); border-radius:16px; padding:0 0 28px; background:var(--panel);
+    border-top:3px solid transparent; overflow:hidden;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  .p-card:nth-child(1){border-top-color:var(--violet);}
+  .p-card:nth-child(2){border-top-color:var(--coral);}
+  .p-card:nth-child(3){border-top-color:var(--teal);}
+  .p-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px -18px rgba(0,0,0,0.55);}
+  .p-card:nth-child(1):hover{border-color: rgba(155,123,255,0.4);}
+  .p-card:nth-child(2):hover{border-color: rgba(255,111,97,0.4);}
+  .p-card:nth-child(3):hover{border-color: rgba(47,230,199,0.4);}
+  .p-visual{width:100%; height:148px; display:block;}
+  .p-card:nth-child(1) .p-visual{background:linear-gradient(150deg, rgba(155,123,255,0.18), transparent);}
+  .p-card:nth-child(2) .p-visual{background:linear-gradient(150deg, rgba(255,111,97,0.18), transparent);}
+  .p-card:nth-child(3) .p-visual{background:linear-gradient(150deg, rgba(47,230,199,0.18), transparent);}
+  .p-body{padding:22px 28px 0;}
+  .p-icon{
+    width:38px; height:38px; border-radius:10px; margin-bottom:18px;
+    display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:0.8rem;
+  }
+  .p-card:nth-child(1) .p-icon{background:var(--violet-soft); border:1px solid rgba(155,123,255,0.3); color:var(--violet);}
+  .p-card:nth-child(2) .p-icon{background:var(--coral-soft); border:1px solid rgba(255,111,97,0.3); color:var(--coral);}
+  .p-card:nth-child(3) .p-icon{background:var(--teal-soft); border:1px solid rgba(47,230,199,0.3); color:var(--teal);}
+  .p-title{font-family:var(--display); font-size:1.08rem; font-weight:600; margin:0 0 4px;}
+  .p-stack{font-family:var(--mono); font-size:0.72rem; color:var(--amber); margin-bottom:12px; letter-spacing:0.02em;}
+  .p-desc{color:var(--muted); font-size:0.93rem; margin:0;}
+
+  /* SKILLS */
+  .skill-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:28px;}
+  .skill-card{border:1px solid var(--line); border-radius:16px; padding:24px 26px; background:var(--panel);}
+  .skill-head{display:flex; align-items:center; gap:12px; margin-bottom:16px;}
+  .skill-icon{width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .skill-icon svg{width:17px; height:17px;}
+  .skill-card:nth-child(1) .skill-icon{background:var(--violet-soft); color:var(--violet);}
+  .skill-card:nth-child(2) .skill-icon{background:var(--teal-soft); color:var(--teal);}
+  .skill-card:nth-child(3) .skill-icon{background:var(--coral-soft); color:var(--coral);}
+  .skill-card:nth-child(4) .skill-icon{background:var(--amber-soft); color:var(--amber);}
+  .skill-card:nth-child(5) .skill-icon{background:var(--pink-soft); color:var(--pink);}
+  .skill-cat{
+    font-family:var(--mono); font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--muted-2); margin-bottom:0;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:9px;}
+  .chip{
+    font-family:var(--mono); font-size:0.78rem; padding:7px 13px; border-radius:8px;
+    background:rgba(232,163,61,0.08); border:1px solid var(--amber-soft); color:var(--text);
+    transition: background .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .chip:hover{transform:translateY(-2px);}
+  .skill-card:nth-child(1) .chip{background:var(--violet-soft); border-color:rgba(155,123,255,0.35);}
+  .skill-card:nth-child(1) .chip:hover{background:rgba(155,123,255,0.28);}
+  .skill-card:nth-child(2) .chip{background:var(--teal-soft); border-color:rgba(47,230,199,0.35);}
+  .skill-card:nth-child(2) .chip:hover{background:rgba(47,230,199,0.28);}
+  .skill-card:nth-child(3) .chip{background:var(--coral-soft); border-color:rgba(255,111,97,0.35);}
+  .skill-card:nth-child(3) .chip:hover{background:rgba(255,111,97,0.28);}
+  .skill-card:nth-child(4) .chip{background:var(--amber-soft); border-color:rgba(245,166,35,0.4);}
+  .skill-card:nth-child(4) .chip:hover{background:rgba(245,166,35,0.3);}
+  .skill-card:nth-child(5) .chip{background:var(--pink-soft); border-color:rgba(255,95,162,0.35);}
+  .skill-card:nth-child(5) .chip:hover{background:rgba(255,95,162,0.28);}
+
+  /* HONORS */
+  .honor-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px;}
+  .honor-card{border:1px solid var(--line); border-radius:16px; padding:24px; background:var(--panel); border-left:3px solid var(--pink);}
+  .honor-card:nth-child(2){border-left-color:var(--violet);}
+  .honor-card:nth-child(2) .honor-title{color:var(--violet);}
+  .honor-title{font-family:var(--display); font-weight:600; font-size:1rem; margin:0 0 8px; color:var(--pink);}
+  .honor-desc{color:var(--muted); font-size:0.93rem; margin:0;}
+
+  .cert-strip{margin-top:32px; border:1px solid var(--line); border-radius:16px; padding:26px 28px; background:var(--panel);}
+  .cert-head{display:flex; align-items:center; gap:12px; margin-bottom:16px;}
+  .cert-badge{width:34px;height:34px;border-radius:9px; background:linear-gradient(135deg, var(--amber-soft), var(--violet-soft)); border:1px solid var(--amber-soft); display:flex; align-items:center; justify-content:center; color:var(--amber); font-family:var(--mono); font-size:0.75rem;}
+  .cert-name{font-family:var(--display); font-weight:600; font-size:1rem;}
+  .cert-issuer{font-family:var(--mono); font-size:0.76rem; color:var(--muted-2);}
+
+  /* CONTACT */
+  .contact{
+    border:1px solid var(--line); border-radius:22px; padding:64px 48px; text-align:center;
+    background:
+      radial-gradient(ellipse 60% 100% at 15% 0%, rgba(155,123,255,0.14), transparent 60%),
+      radial-gradient(ellipse 60% 100% at 85% 100%, rgba(47,230,199,0.14), transparent 60%),
+      var(--panel);
+  }
+  .contact h2{font-family:var(--serif); font-size:clamp(1.8rem,3.4vw,2.6rem); margin:0 0 16px;
+    background:linear-gradient(100deg, var(--text), var(--teal) 120%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .contact p{color:var(--muted); max-width:52ch; margin:0 auto 34px;}
+  .contact-links{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+
+  footer{border-top:1px solid var(--line); padding:36px 0; margin-top:20px;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+  .footer-brand{font-family:var(--display); font-weight:600; font-size:0.95rem;}
+  .footer-note{font-family:var(--mono); font-size:0.76rem; color:var(--muted-2);}
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--panel); border:1px solid var(--line); color:var(--teal);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    opacity:0; pointer-events:none; transition:all .3s ease; z-index:200;
+  }
+  #toTop.show{opacity:1; pointer-events:auto;}
+  #toTop:hover{border-color:var(--teal); transform:translateY(-3px);}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (max-width: 860px){
+    nav.links{display:none;}
+    .hero{grid-template-columns:1fr; padding-top:100px;}
+    .signature{height:280px; order:-1;}
+    .about-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .wrap{padding:0 20px;}
+    .navrow{padding:0 20px;}
+    .contact{padding:44px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+
+<header id="nav">
+  <div class="navrow">
+    <div class="brand"><span class="brand-mark"></span>Lavanya Dabbugottu</div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#honors">Honors</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="mailto:sailavanya909@gmail.com">Get in touch</a>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <div>
+    <span class="eyebrow">Business Analytics · Software Development</span>
+    <h1 class="hero-title">Turning business questions into <em>working systems.</em></h1>
+    <p class="hero-desc">Business Analyst candidate (MS, Business Analytics — UMass Boston) with hands-on software development experience across .NET Core, SQL Server, Azure, and React. I translate ambiguous requirements into technical specifications, and technical systems into insight stakeholders can act on.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">Start a conversation</a>
+      <a class="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
+    </div>
+    <div class="hero-meta">
+      <span><span class="dot"></span>Boston, MA</span>
+      <span><span class="dot"></span>sailavanya909@gmail.com</span>
+      <span><span class="dot"></span><a href="https://linkedin.com/in/lavanya-dabbugottu-8b7a2323a" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+  </div>
+  <div class="signature">
+    <div class="sig-card">
+      <svg viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#F5A623"/>
+            <stop offset="50%" stop-color="#FF6F61"/>
+            <stop offset="100%" stop-color="#9B7BFF"/>
+          </linearGradient>
+        </defs>
+        <g stroke="rgba(148,163,184,0.18)" stroke-width="1">
+          <line x1="40" y1="60" x2="360" y2="60"/>
+          <line x1="40" y1="120" x2="360" y2="120"/>
+          <line x1="40" y1="180" x2="360" y2="180"/>
+          <line x1="40" y1="240" x2="360" y2="240"/>
+        </g>
+        <polyline points="40,220 100,190 150,205 200,140 250,160 300,90 360,110"
+          fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <animate attributeName="points"
+            values="40,220 100,190 150,205 200,140 250,160 300,90 360,110;
+                    40,200 100,170 150,225 200,120 250,180 300,110 360,90;
+                    40,220 100,190 150,205 200,140 250,160 300,90 360,110"
+            dur="7s" repeatCount="indefinite"/>
+        </polyline>
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="#69759A">
+          <text x="40" y="270">Q1</text>
+          <text x="140" y="270">Q2</text>
+          <text x="240" y="270">Q3</text>
+          <text x="330" y="270">Q4</text>
+        </g>
+        <g transform="translate(60,300)">
+          <text font-family="Space Grotesk, monospace" font-size="46" fill="#EDEEF3" opacity="0.92">&lt;/&gt;</text>
+        </g>
+        <g stroke="rgba(63,214,196,0.35)" stroke-width="1" stroke-dasharray="3 5">
+          <line x1="200" y1="230" x2="150" y2="300"/>
+        </g>
+        <circle cx="200" cy="230" r="4" fill="#2FE6C7"/>
+        <circle cx="150" cy="300" r="3" fill="#F5A623"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="about" class="section wrap reveal">
+  <div class="about-grid">
+    <div class="about-text">
+      <span class="section-tag">About</span>
+      <h2 class="section-title">Analytical thinking, backed by engineering depth.</h2>
+      <p>I'm pursuing an <strong>MS in Business Analytics at UMass Boston</strong>, building on a Computer Science background and a year of professional software development experience. My work sits at the intersection of <strong>supply chain analytics, requirements analysis, and full-stack engineering</strong> — I've gathered requirements directly from business stakeholders, then built the React and .NET Core systems that serve their reporting needs.</p>
+      <p>That dual fluency — comfortable in a stakeholder workshop and equally comfortable in a SQL Server schema or an Azure pipeline — is what I bring to Business Analyst and Software Developer roles alike: the ability to move a problem from a conversation to a working, measurable solution.</p>
+    </div>
+    <div>
+      <div class="about-visual">
+        <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="118" cy="90" r="72" fill="rgba(155,123,255,0.22)" stroke="#9B7BFF" stroke-width="1.5"/>
+          <circle cx="182" cy="90" r="72" fill="rgba(47,230,199,0.22)" stroke="#2FE6C7" stroke-width="1.5"/>
+          <text x="78" y="55" font-family="Space Grotesk, sans-serif" font-size="12" fill="#EDEEF3">Business</text>
+          <text x="78" y="70" font-family="Space Grotesk, sans-serif" font-size="12" fill="#EDEEF3">Analytics</text>
+          <text x="192" y="55" font-family="Space Grotesk, sans-serif" font-size="12" fill="#EDEEF3">Software</text>
+          <text x="192" y="70" font-family="Space Grotesk, sans-serif" font-size="12" fill="#EDEEF3">Engineering</text>
+          <text x="150" y="98" font-family="JetBrains Mono, monospace" font-size="10.5" fill="#F5A623" text-anchor="middle">Lavanya</text>
+        </svg>
+      </div>
+      <div class="stat-panel">
+      <div class="stat-row"><span>DEGREE</span><span>MS, Business Analytics</span></div>
+      <div class="stat-row"><span>INSTITUTION</span><span>UMass Boston</span></div>
+      <div class="stat-row"><span>PRIOR</span><span>BS, Computer Science</span></div>
+      <div class="stat-row"><span>BASE</span><span>Boston, MA</span></div>
+      <div class="stat-row"><span>FOCUS</span><span>BA &amp; Software Dev</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="experience" class="section wrap reveal">
+  <div class="section-head">
+    <span class="section-tag">Experience &amp; Education</span>
+    <h2 class="section-title">A timeline of building and learning</h2>
+    <p class="section-sub">From coursework in analytics to shipping production reporting systems.</p>
+  </div>
+  <div class="timeline">
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-period">SEP 2024 — MAY 2026</div>
+      <div class="t-role">Master of Science, Business Analytics</div>
+      <div class="t-org">University of Massachusetts Boston · Boston, MA</div>
+      <ul class="t-list">
+        <li>Coursework: Supply Chain Management, Business Intelligence &amp; Analytics, Predictive Modeling</li>
+        <li>Decision Support Systems, Systems Analysis &amp; Design, Data Visualization, Operations Management</li>
+      </ul>
+    </div>
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-period">MAY 2023 — AUG 2024</div>
+      <div class="t-role">Software Developer Intern</div>
+      <div class="t-org">Maganti IT Resources, LLC · Vijayawada, India</div>
+      <ul class="t-list">
+        <li>Gathered and documented requirements with maritime-domain stakeholders for inspection, detention, fleet, and compliance analytics, translating needs into technical specifications.</li>
+        <li>Built a centralized Report Portal (React.js frontend, .NET Core backend) delivering Inspection, Detention, Fleet &amp; Company, and Year-wise Summary Reports to non-technical business users.</li>
+        <li>Designed and optimized SQL Server schemas, joins, and stored procedures supporting real-time analytical reporting over large vessel and company datasets.</li>
+        <li>Deployed and managed infrastructure on Microsoft Azure — App Services, Key Vault, Service Bus, Blob Storage, and CI/CD pipelines.</li>
+        <li>Participated in Agile sprints, stand-ups, and sprint reviews; tracked tasks and defects in JIRA alongside development and analyst teams.</li>
+      </ul>
+      <div class="t-tags">
+        <span class="tag">React.js</span><span class="tag">.NET Core</span><span class="tag">SQL Server</span><span class="tag">Azure</span><span class="tag">JIRA</span>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-period">AUG 2020 — MAY 2023</div>
+      <div class="t-role">Bachelor of Science, Computer Science</div>
+      <div class="t-org">Maris Stella College (Autonomous) · Vijayawada, AP, India</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="projects" class="section wrap reveal">
+  <div class="section-head">
+    <span class="section-tag">Academic &amp; Technical Projects</span>
+    <h2 class="section-title">Turning data into decisions</h2>
+    <p class="section-sub">Selected coursework and independent projects across analytics tooling and data engineering.</p>
+  </div>
+  <div class="card-grid">
+    <div class="p-card">
+      <svg class="p-visual" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="rgba(148,163,184,0.16)"><line x1="30" y1="30" x2="270" y2="30"/><line x1="30" y1="70" x2="270" y2="70"/><line x1="30" y1="110" x2="270" y2="110"/></g>
+        <rect x="50" y="55" width="22" height="65" rx="4" fill="#9B7BFF" opacity="0.85"/>
+        <rect x="90" y="75" width="22" height="45" rx="4" fill="#9B7BFF" opacity="0.6"/>
+        <rect x="130" y="40" width="22" height="80" rx="4" fill="#9B7BFF"/>
+        <rect x="170" y="60" width="22" height="60" rx="4" fill="#9B7BFF" opacity="0.6"/>
+        <rect x="210" y="25" width="22" height="95" rx="4" fill="#9B7BFF" opacity="0.85"/>
+        <path d="M50 60 L112 84 L152 45 L192 65 L221 30" fill="none" stroke="#2FE6C7" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="p-body">
+      <div class="p-icon">01</div>
+      <div class="p-title">Supply Chain Performance Dashboard</div>
+      <div class="p-stack">Tableau · SQL · Python</div>
+      <p class="p-desc">Interactive Tableau dashboards tracking inventory turnover, supplier lead times, and order fulfillment rates. Used Python and SQL to clean and analyze supply chain datasets, surfacing demand patterns and vendor performance gaps for procurement decisions.</p>
+      </div>
+    </div>
+    <div class="p-card">
+      <svg class="p-visual" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="75" r="46" fill="none" stroke="rgba(148,163,184,0.2)" stroke-width="14"/>
+        <circle cx="150" cy="75" r="46" fill="none" stroke="#FF6F61" stroke-width="14" stroke-dasharray="115 289" stroke-dashoffset="0" transform="rotate(-90 150 75)"/>
+        <circle cx="150" cy="75" r="46" fill="none" stroke="#FF9F1C" stroke-width="14" stroke-dasharray="80 289" stroke-dashoffset="-115" transform="rotate(-90 150 75)" opacity="0.85"/>
+        <circle cx="150" cy="75" r="46" fill="none" stroke="#9B7BFF" stroke-width="14" stroke-dasharray="94 289" stroke-dashoffset="-195" transform="rotate(-90 150 75)" opacity="0.85"/>
+        <text x="150" y="80" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#EDEEF3">2010–23</text>
+      </svg>
+      <div class="p-body">
+      <div class="p-icon">02</div>
+      <div class="p-title">Global Cinema Trends — BI Analysis</div>
+      <div class="p-stack">Tableau · Business Intelligence</div>
+      <p class="p-desc">End-to-end Tableau dashboard analyzing 13 years of film data (2010–2023), identifying genre-level ROI trends and regional audience shifts to support strategic market decisions.</p>
+      </div>
+    </div>
+    <div class="p-card">
+      <svg class="p-visual" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="35" width="90" height="80" rx="6" fill="none" stroke="rgba(148,163,184,0.3)" stroke-width="1.5"/>
+        <line x1="52" y1="52" x2="118" y2="52" stroke="rgba(148,163,184,0.4)" stroke-width="2"/>
+        <line x1="52" y1="66" x2="100" y2="66" stroke="rgba(148,163,184,0.4)" stroke-width="2"/>
+        <line x1="52" y1="80" x2="112" y2="80" stroke="rgba(148,163,184,0.4)" stroke-width="2"/>
+        <path d="M150 75 L180 75" stroke="#2FE6C7" stroke-width="2" stroke-dasharray="4 4"/>
+        <circle cx="220" cy="75" r="34" fill="rgba(47,230,199,0.14)" stroke="#2FE6C7" stroke-width="1.5"/>
+        <path d="M205 76 l11 11 l20 -24" fill="none" stroke="#2FE6C7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="p-body">
+      <div class="p-icon">03</div>
+      <div class="p-title">Automated Data Validator</div>
+      <div class="p-stack">Python · Pandas</div>
+      <p class="p-desc">A Python/Pandas script that auto-validates incoming CSV datasets — catching missing values and formatting errors — cutting manual data-cleaning effort by 40%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="skills" class="section wrap reveal">
+  <div class="section-head">
+    <span class="section-tag">Technical Skills</span>
+    <h2 class="section-title">Tools across the analytics-to-engineering pipeline</h2>
+  </div>
+  <div class="skill-groups">
+    <div class="skill-card">
+      <div class="skill-head">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="7 8 3 12 7 16"/><polyline points="17 8 21 12 17 16"/><line x1="14" y1="4" x2="10" y2="20"/></svg></div>
+        <div class="skill-cat">Languages &amp; Frameworks</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">.NET Core (C#)</span><span class="chip">React.js</span><span class="chip">JavaScript</span><span class="chip">Python</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+        <div class="skill-cat">Cloud &amp; DevOps</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">Azure App Services</span><span class="chip">Key Vault</span><span class="chip">Service Bus</span><span class="chip">Blob Storage</span><span class="chip">Functions</span><span class="chip">CI/CD</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
+        <div class="skill-cat">Databases</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">SQL Server</span><span class="chip">T-SQL</span><span class="chip">Stored Procedures</span><span class="chip">Query Optimization</span><span class="chip">Data Modeling</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+        <div class="skill-cat">Analytics &amp; BI</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">Tableau</span><span class="chip">Advanced Excel</span><span class="chip">Pivot Tables</span><span class="chip">Macros</span><span class="chip">Google Analytics</span><span class="chip">EDA</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-head">
+        <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div>
+        <div class="skill-cat">BA &amp; Design Tools</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip">JIRA</span><span class="chip">Confluence</span><span class="chip">Figma</span><span class="chip">Requirements Docs</span><span class="chip">Process Mapping</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="honors" class="section wrap reveal">
+  <div class="section-head">
+    <span class="section-tag">Honors, Leadership &amp; Certifications</span>
+    <h2 class="section-title">Beyond the coursework</h2>
+  </div>
+  <div class="honor-grid">
+    <div class="honor-card">
+      <div class="honor-title">Beta Gamma Sigma</div>
+      <p class="honor-desc">Member of the international business honor society, recognizing academic excellence in business programs.</p>
+    </div>
+    <div class="honor-card">
+      <div class="honor-title">Volunteer Coordinator — Women Empowerment Initiative</div>
+      <p class="honor-desc">Organized workshops on women's educational rights, reaching 100+ community participants.</p>
+    </div>
+  </div>
+  <div class="cert-strip">
+    <div class="cert-head">
+      <div class="cert-badge">AI</div>
+      <div>
+        <div class="cert-name">Google AI Essentials</div>
+        <div class="cert-issuer">Specialization Certificate</div>
+      </div>
+    </div>
+    <div class="chip-row">
+      <span class="chip">Artificial Intelligence</span>
+      <span class="chip">Generative AI</span>
+      <span class="chip">Prompt Engineering</span>
+      <span class="chip">Responsible AI / AI Ethics</span>
+      <span class="chip">Large Language Models</span>
+      <span class="chip">AI-Powered Productivity</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="contact" class="section wrap reveal">
+  <div class="contact">
+    <h2>Let's build something that works.</h2>
+    <p>Open to Business Analyst and Software Developer roles where analytical thinking and technical depth both create value. Based in Boston, MA — happy to connect.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:sailavanya909@gmail.com">sailavanya909@gmail.com</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/lavanya-dabbugottu-8b7a2323a" target="_blank" rel="noopener">LinkedIn Profile</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="footer-brand">Dabbugottu Lavanya</div>
+    <div class="footer-note">Boston, MA · Built for clarity, not decoration.</div>
+  </div>
+</footer>
+
+<div id="toTop" title="Back to top">↑</div>
+
+<script>
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 480) toTop.classList.add('show');
+    else toTop.classList.remove('show');
+  });
+  toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  reveals.forEach(el => io.observe(el));
+
+  // Smooth scroll for nav links (in-page anchors)
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
