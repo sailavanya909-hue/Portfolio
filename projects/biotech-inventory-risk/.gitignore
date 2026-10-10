@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+data/processed/*.sqlite
+data/processed/*.sqlite3
+data/processed/*.db
